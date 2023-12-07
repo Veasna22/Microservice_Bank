@@ -6,6 +6,8 @@ import com.veasna.bank.account.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author Veasna
  * @version 1.0
@@ -21,5 +23,16 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer save(Customer customer) {
         return customerRepository.save(customer);
+    }
+
+    @Override
+    public List<Customer> getCustomers() {
+        return customerRepository.findAll();
+    }
+
+    @Override
+    public Customer getById(Long id) {
+        return customerRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Customer not found"));
     }
 }

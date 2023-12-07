@@ -6,6 +6,10 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
 /**
@@ -17,10 +21,13 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
-@Document(collection = "accounts")
+@Entity
+//@Document(collection = "accounts")
 public class Account {
-    private String customerId;
-    private String accountNumber;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long customerId;
+    private Long accountNumber;
     private String accountType;
     private String branchAddress;
     private LocalDate createDate;

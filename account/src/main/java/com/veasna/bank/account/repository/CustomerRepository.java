@@ -1,7 +1,7 @@
 package com.veasna.bank.account.repository;
 
 import com.veasna.bank.account.entity.Customer;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * @author Veasna
@@ -9,6 +9,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * @license Veasna , LLC
  * @since 30/11/23 12:21
  */
-public interface CustomerRepository extends MongoRepository<Customer, String> {
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
 }
