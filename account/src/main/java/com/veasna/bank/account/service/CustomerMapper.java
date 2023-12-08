@@ -19,7 +19,7 @@ public class CustomerMapper {
         customer.setName(dto.getName());
         customer.setMobileNumber(dto.getMobileNumber());
         customer.setEmail(dto.getEmail());
-        customer.setCreateDate(LocalDate.now());
+        customer.setCreateDate(LocalDate.parse(dto.getCreateDate()));
         return customer;
     }
 }
